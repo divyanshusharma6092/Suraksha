@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
-import { getAdoptions, applyForAdoption } from "../api/Adoption";
 import "./Missing.css";
 import { getAdoptions, applyForAdoption, getMyApplications } from "../api/Adoption";
 
-const [appliedIds, setAppliedIds] = useState([]);
 const getDogPhotos = (dog) => {
   // Prefer photos saved in the database
   if (Array.isArray(dog.photos) && dog.photos.length > 0) {
@@ -49,6 +47,7 @@ export default function Adopt() {
   const [notice, setNotice] = useState("");
   const [openId, setOpenId] = useState(null);
   const [message, setMessage] = useState("");
+  const [appliedIds, setAppliedIds] = useState([]);
 
   const { user } = useAuth();
   const navigate = useNavigate();
