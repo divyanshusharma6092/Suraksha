@@ -19,14 +19,25 @@ const applicationRoutes = require("./routes/applicationRoutes");
 const app = express();
 
 // MIDDLEWARE
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://192.168.1.103:5173",
+  "https://suraksha-pets.netlify.app",
+  "https://fancy-cobbler-4a1f47.netlify.app",
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
