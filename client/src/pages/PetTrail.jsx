@@ -85,8 +85,8 @@ export default function PetTrail() {
   const computerIP = "192.168.1.103";
 
   const trailURL = pet
-    ? `http://${computerIP}:5173/trail/${encodeURIComponent(pet.qrCode)}`
-    : "";
+  ? `https://suraksha-pets.netlify.app/trail/${encodeURIComponent(pet.qrCode)}`
+  : "";
 
   return (
     <div className="pets-page">
