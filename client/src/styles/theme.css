@@ -1,0 +1,27 @@
+:root {
+  /* Colors */
+  --color-navy: #0A2027;
+  --color-teal: #135B4D;
+  --color-green: #2A835F;
+  --color-sage: #8BBB92;
+  --color-white: #FFFFFF;
+  --color-cream: #FAF9F6;
+
+  /* Typography */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Karla', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Spacing (optional, but useful) */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+}

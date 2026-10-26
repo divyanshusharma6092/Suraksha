@@ -1,0 +1,40 @@
+.myreports-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+.myreports-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.myreports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.myreports-card {
+  background: #fff;
+  border: 1px solid #dfe6dd;
+  border-radius: 10px;
+  padding: 16px;
+}
+.myreports-desc {
+  margin: 10px 0 6px;
+}
+.myreports-meta {
+  font-size: 13px;
+  color: #5b6b66;
+}
+.status-pill {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #e8eee7;
+  text-transform: capitalize;
+}
+.status-resolved {
+  background: #2a835f;
+  color: #fff;
+}

@@ -1,0 +1,214 @@
+/* Main Adoption Form Card */
+.add-adoption-form {
+  width: calc(100% - 32px);
+  max-width: 500px;
+  margin: 24px auto;
+  padding: 24px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border: 1px solid #e2e8e3;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+.add-adoption-form h2 {
+  margin: 0 0 8px;
+  color: #24643d;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+/* Description Text */
+.add-adoption-form > p {
+  margin: 0 0 20px;
+  color: #68756c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Form Layout */
+.add-adoption-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+/* Individual Input Groups */
+.add-adoption-form .adoption-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+/* Labels */
+.add-adoption-form label {
+  display: block;
+  margin: 0;
+  color: #34463a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Input Fields */
+.add-adoption-form input,
+.add-adoption-form textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  box-sizing: border-box;
+
+  border: 1px solid #d5dfd7;
+  border-radius: 8px;
+  background: #fbfdfb;
+  color: #26352b;
+  font-family: inherit;
+  font-size: 13px;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Focus Effect */
+.add-adoption-form input:focus,
+.add-adoption-form textarea:focus {
+  outline: none;
+  border-color: #32804b;
+  box-shadow: 0 0 0 3px rgba(50, 128, 75, 0.12);
+  background: #ffffff;
+}
+
+/* Placeholder */
+.add-adoption-form input::placeholder,
+.add-adoption-form textarea::placeholder {
+  color: #9aa69d;
+}
+
+/* Description Box */
+.add-adoption-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Pet Photo Preview */
+.add-adoption-form .adoption-photo-preview,
+.add-adoption-form img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: 150px;
+  margin: 8px 0;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e2e8e3;
+}
+
+/* Submit Button */
+.add-adoption-form button {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 16px;
+
+  border: none;
+  border-radius: 8px;
+  background: #287747;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Button Hover */
+.add-adoption-form button:hover:not(:disabled) {
+  background: #1d5c35;
+  transform: translateY(-1px);
+}
+
+/* Disabled Button */
+.add-adoption-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.add-adoption-form [role="status"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #edf8ef;
+  color: #24643d;
+  font-size: 13px;
+}
+
+/* Error Message */
+.add-adoption-form [role="alert"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #b42318;
+  font-size: 13px;
+}
+
+/* Tablet and Mobile */
+@media (max-width: 600px) {
+  .add-adoption-form {
+    width: calc(100% - 24px);
+    max-width: 100%;
+    margin: 16px auto;
+    padding: 18px;
+  }
+
+  .add-adoption-form h2 {
+    font-size: 21px;
+  }
+
+  .add-adoption-form input,
+  .add-adoption-form textarea {
+    font-size: 14px;
+  }
+}
+
+/* Add Pet section */
+.adoption-section {
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto 40px;
+  padding: 0;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* Keep adoption form compact */
+.adoption-section .add-adoption-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* Keep pet preview small */
+.adoption-section .add-adoption-form img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .adoption-section {
+    max-width: 100%;
+  }
+
+  .adoption-section .add-adoption-form {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,130 @@
+.report-page {
+  --navy: #0A2027;
+  --teal: #135B4D;
+  --green: #2A835F;
+  --sage: #8BBB92;
+  --bg: #F4F7F3;
+  --sub: #4C5F58;
+  --line: #DCE5DD;
+
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Karla', sans-serif;
+  color: var(--navy);
+}
+
+.report-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+}
+
+.report-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.report-intro h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.report-copy {
+  font-size: 15px;
+  color: var(--sub);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.report-card {
+  margin-top: 32px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 24px;
+}
+
+.map-box {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.coord-readout {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--teal);
+  margin: 12px 0 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.form-field textarea {
+  padding: 11px 12px;
+  font-size: 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  font-family: 'Karla', sans-serif;
+  outline: none;
+  resize: vertical;
+  background: #fff;
+  color: var(--navy);
+  transition: border-color 0.15s ease;
+}
+
+.form-field textarea:focus {
+  border-color: var(--teal);
+}
+
+.form-error {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #B3261E;
+}
+
+.form-success {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.report-submit {
+  margin-top: 20px;
+  width: 100%;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.report-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(42, 131, 95, 0.25);
+}
+
+.report-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
