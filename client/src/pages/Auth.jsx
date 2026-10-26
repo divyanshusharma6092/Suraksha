@@ -49,13 +49,13 @@ export default function Auth() {
           <div className="auth-tabs">
             <button
               className={`auth-tab ${mode === "login" ? "active" : ""}`}
-              onClick={() => setMode("login")}
+              onClick={() => { setMode("login"); setError(""); }}
             >
               Log in
             </button>
             <button
               className={`auth-tab ${mode === "register" ? "active" : ""}`}
-              onClick={() => setMode("register")}
+              onClick={() => { setMode("register"); setError(""); }}
             >
               Sign up
             </button>
@@ -107,8 +107,21 @@ export default function Auth() {
               </div>
             )}
 
-            <button type="submit" className="auth-submit">
-              {mode === "login" ? "Log in" : "Create account"}
+            {error && (
+              <p
+                role="alert"
+                style={{ color: "crimson", fontSize: "14px", margin: "4px 0" }}
+              >
+                {error}
+              </p>
+            )}
+
+            <button type="submit" className="auth-submit" disabled={loading}>
+              {loading
+                ? "Please wait..."
+                : mode === "login"
+                  ? "Log in"
+                  : "Create account"}
             </button>
           </form>
 

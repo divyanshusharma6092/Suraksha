@@ -1,11 +1,12 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
 import { getAdoptions, applyForAdoption } from "../api/Adoption";
 import "./Missing.css";
+import { getAdoptions, applyForAdoption, getMyApplications } from "../api/Adoption";
 
+const [appliedIds, setAppliedIds] = useState([]);
 const getDogPhotos = (dog) => {
   // Prefer photos saved in the database
   if (Array.isArray(dog.photos) && dog.photos.length > 0) {
@@ -76,6 +77,26 @@ export default function Adopt() {
     loadDogs();
   }, []);
 
+  useEffect(() => {
+    if (!user || user.role !== "individual") {
+      setAppliedIds([]);
+      return;
+    }
+
+    const loadApplied = async () => {
+      try {
+        const { data } = await getMyApplications();
+        setAppliedIds(
+          (data.applications || []).map((a) => String(a.listingId))
+        );
+      } catch (err) {
+        console.error("Could not load applied list:", err);
+      }
+    };
+
+    loadApplied();
+  }, [user]);
+
   const startApply = (id) => {
     setError("");
     setNotice("");
@@ -121,18 +142,25 @@ export default function Adopt() {
 
       setNotice(
         response.data?.message ||
-          "Application sent successfully! The NGO can review your application."
+        "Application sent successfully! The NGO can review your application."
       );
+
+      setAppliedIds((prev) => [...prev, String(id)]);
 
       setOpenId(null);
       setMessage("");
     } catch (err) {
       console.error("Adoption application error:", err);
 
+      if (err.response?.data?.message?.includes("already applied")) {
+        setAppliedIds((prev) => [...prev, String(id)]);
+        setOpenId(null);
+      }
+
       setError(
         err.response?.data?.message ||
-          err.message ||
-          "Could not send application. Please try again."
+        err.message ||
+        "Could not send application. Please try again."
       );
     } finally {
       setSubmitting(false);
@@ -265,13 +293,23 @@ export default function Adopt() {
                   </div>
                 ) : (
                   <div className="pets-actions">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={() => startApply(dog._id)}
-                    >
-                      Apply to adopt
-                    </button>
+                    {appliedIds.includes(String(dog._id)) ? (
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        disabled
+                      >
+                        Applied ✓
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={() => startApply(dog._id)}
+                      >
+                        Apply to adopt
+                      </button>
+                    )}
                   </div>
                 )}
               </div>

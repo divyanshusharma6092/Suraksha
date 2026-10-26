@@ -30,8 +30,8 @@ export default function Trail() {
         console.error("Trail page error:", err);
         setError(
           err.response?.data?.message ||
-            err.message ||
-            "Pet details load nahi hui. Backend check karo."
+          err.message ||
+          "Pet details load nahi hui. Backend check karo."
         );
       } finally {
         setLoading(false);
@@ -69,14 +69,22 @@ export default function Trail() {
 
       <h2>{pet.petName}</h2>
       <p><strong>Pet QR ID:</strong> {pet.qrCode}</p>
+      {pet.breed && <p><strong>Breed:</strong> {pet.breed}</p>}
+      {pet.age && <p><strong>Age:</strong> {pet.age}</p>}
 
-      {pet.ownerId && (
-        <section>
-          <h3>Owner Details</h3>
-          <p>Name: {pet.ownerId.name || "Not available"}</p>
-          <p>Email: {pet.ownerId.email || "Not available"}</p>
-        </section>
-      )}
+      <section>
+        <h3>Owner Details</h3>
+        <p>Name: {pet.ownerName || "Not available"}</p>
+        <p>
+          Contact:{" "}
+          {pet.ownerContact ? (
+            <a href={`tel:${pet.ownerContact}`}>{pet.ownerContact}</a>
+          ) : (
+            "Not available"
+          )}
+        </p>
+        {pet.address && <p>Address: {pet.address}</p>}
+      </section>
     </main>
   );
 }
