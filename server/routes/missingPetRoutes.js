@@ -1,6 +1,6 @@
 
 const express = require("express");
-const MissingPet = require("../models/missingpet");
+const MissingPet = require("../models/MissingPet");
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
